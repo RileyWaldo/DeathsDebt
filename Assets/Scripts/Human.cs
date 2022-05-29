@@ -30,8 +30,7 @@ public class Human : MonoBehaviour
         if (Vector3.SqrMagnitude(player.position - transform.position) > Mathf.Pow(runAwayDistance, 2f))
             return;
 
-        animator.SetInteger("legs", 2);
-        action = Fleeing;
+        SetState(Fleeing, 2);
     }
 
     private void Fleeing()
@@ -41,16 +40,22 @@ public class Human : MonoBehaviour
             Vector3 playerDirection = Camera.main.transform.forward;
             playerDirection.z = 0f;
             Vector3 newPos = Vector3.Cross(playerDirection, Vector3.up);
-            newPos *= runAwayDistance;
-            agent.destination = newPos;
+            playerDirection *= runAwayDistance;
+            playerDirection += newPos * Random.Range(-5f, 5f);
+            agent.destination = playerDirection;
             return;
         }
 
         if(Vector3.SqrMagnitude(player.position - transform.position) > Mathf.Pow(runAwayDistance, 2f))
         {
             agent.destination = transform.position;
-            animator.SetInteger("legs", 5);
-            action = DetectPlayer;
+            SetState(DetectPlayer, 5);
         }
+    }
+
+    private void SetState(Action state, int animation)
+    {
+        animator.SetInteger("legs", animation);
+        action = state;
     }
 }
