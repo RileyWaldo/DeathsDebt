@@ -1133,6 +1133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSound: {fileID: 8300000, guid: 9089009c1aae6a9458496169557c29eb, type: 3}
+  soulCatchGamePrefab: {fileID: 4389260332181405754, guid: 08434905164deef49a53abd9e9f76f82, type: 3}
 --- !u!4 &7527229480580502927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5499057094133807294, guid: 6d5c973482b67d04e8b5574a2dc815a5, type: 3}
@@ -1203,7 +1204,7 @@ PrefabInstance:
       objectReference: {fileID: 2312466309769278844}
     - target: {fileID: 8762286023885395323, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7777778
+      value: 1.777512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}

@@ -4,6 +4,7 @@ using StarterAssets;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private AudioClip attackSound;
+    [SerializeField] private GameObject soulCatchGamePrefab;
 
     private StarterAssetsInputs input;
     private Animator animator;
@@ -49,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
             if (hit.GetComponent<Human>() == null)
                 continue;
 
-            Destroy(hit.gameObject);
+            Instantiate(soulCatchGamePrefab);
             break;
         }
     }
