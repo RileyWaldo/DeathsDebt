@@ -42,7 +42,16 @@ public class PlayerAttack : MonoBehaviour
 
     private void AttackHitTrigger()
     {
-        
+        var hits = Physics.OverlapSphere(transform.position + transform.forward, 1f);
+
+        foreach(Collider hit in hits)
+        {
+            if (hit.GetComponent<Human>() == null)
+                continue;
+
+            Destroy(hit.gameObject);
+            break;
+        }
     }
 }
 

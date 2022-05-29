@@ -35,7 +35,7 @@ public class Human : MonoBehaviour
 
     private void Fleeing()
     {
-        if(Vector3.SqrMagnitude(moveTo - transform.position) <= Mathf.Pow(runAwayDistance, 2f))
+        if(Vector3.SqrMagnitude(moveTo - transform.position) <= Mathf.Pow(0.5f, 2f) || agent.velocity == Vector3.zero)
         {
             Vector3 playerDirection = Camera.main.transform.forward;
             playerDirection.z = 0f;
@@ -43,6 +43,7 @@ public class Human : MonoBehaviour
             playerDirection *= runAwayDistance;
             playerDirection += newPos * Random.Range(-5f, 5f);
             agent.destination = playerDirection;
+            moveTo = playerDirection;
             return;
         }
 
@@ -57,5 +58,11 @@ public class Human : MonoBehaviour
     {
         animator.SetInteger("legs", animation);
         action = state;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(moveTo, 0.5f);
     }
 }
