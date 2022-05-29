@@ -29,10 +29,20 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
-        if(!audioSource.isPlaying)
-            audioSource.Play();
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             animator.SetTrigger("Attack");
+    }
+
+    //animation events
+
+    private void AttackSFXTrigger()
+    {
+        audioSource.Play();
+    }
+
+    private void AttackHitTrigger()
+    {
+        
     }
 }
 
