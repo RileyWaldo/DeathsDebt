@@ -1,5 +1,6 @@
 using UnityEngine;
 using StarterAssets;
+using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -47,10 +48,15 @@ public class PlayerAttack : MonoBehaviour
 
         foreach(Collider hit in hits)
         {
-            if (hit.GetComponent<Human>() == null)
+            var human = hit.GetComponent<Human>();
+            if (human == null)
                 continue;
 
-            Instantiate(soulCatchGamePrefab);
+            human.Pause(true);
+            input.GetComponent<PlayerInput>().enabled = false;
+            var soulCatch = Instantiate(soulCatchGamePrefab);
+            soulCatch.GetComponent<SoulCatchEvent>().SetUp(human.GetDifficulty());
+            soulCatch.GetComponent<SoulCatchEvent>().SetHuman(human);
             break;
         }
     }

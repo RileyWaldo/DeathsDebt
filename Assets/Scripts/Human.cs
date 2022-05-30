@@ -3,6 +3,12 @@ using UnityEngine.AI;
 
 public class Human : MonoBehaviour
 {
+    [Header("Difficulty")]
+    [Space]
+    [SerializeField] private HumanDifficulty difficulty;
+
+    [Header("Set Up")]
+    [Space]
     [SerializeField] private float runAwayDistance;
     [SerializeField] private Animator animator;
 
@@ -58,6 +64,22 @@ public class Human : MonoBehaviour
     {
         animator.SetInteger("legs", animation);
         action = state;
+    }
+
+    public void Pause(bool pause)
+    {
+        if (pause)
+            action = null;
+        else
+        {
+            action = Fleeing;
+            agent.speed += difficulty.speedBoost;
+        }
+    }
+
+    public HumanDifficulty GetDifficulty()
+    {
+        return difficulty;
     }
 
     private void OnDrawGizmosSelected()

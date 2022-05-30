@@ -300,6 +300,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9103455495544179676, guid: 3a8578af5501dcf49aab75881c875e09, type: 3}
+      propertyPath: difficulty.goal
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103455495544179676, guid: 3a8578af5501dcf49aab75881c875e09, type: 3}
+      propertyPath: difficulty.spawnRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103455495544179676, guid: 3a8578af5501dcf49aab75881c875e09, type: 3}
+      propertyPath: difficulty.speedBoost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103455495544179676, guid: 3a8578af5501dcf49aab75881c875e09, type: 3}
+      propertyPath: difficulty.buttonSpeed
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103455495544179676, guid: 3a8578af5501dcf49aab75881c875e09, type: 3}
+      propertyPath: difficulty.startingScore
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a8578af5501dcf49aab75881c875e09, type: 3}
 --- !u!1001 &464906126
