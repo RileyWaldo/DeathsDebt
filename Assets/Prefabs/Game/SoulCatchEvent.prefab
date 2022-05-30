@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 4389260330916738417}
   - component: {fileID: 4389260330916738416}
   - component: {fileID: 1185245491323731526}
+  - component: {fileID: 2019501899360953089}
   m_Layer: 5
   m_Name: TooFarBar
   m_TagString: Finish
@@ -222,10 +223,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.5557709, y: 1.7038574}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -236,8 +237,29 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 428.6636, y: 75.968994}
   m_EdgeRadius: 0
+--- !u!50 &2019501899360953089
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4389260330916738430}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4389260331052955436
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +844,20 @@ MonoBehaviour:
   inputBar: {fileID: 4389260332872075491}
   scoreText: {fileID: 8871971715439821197}
   goalText: {fileID: 1583854663909023460}
+  contactFilter2D:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!114 &3936846336379594565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,6 +1053,7 @@ GameObject:
   - component: {fileID: 4389260332872075494}
   - component: {fileID: 4389260332872075493}
   - component: {fileID: 2851632749821973707}
+  - component: {fileID: 7079773320517989658}
   m_Layer: 5
   m_Name: InputBar
   m_TagString: Untagged
@@ -1095,7 +1132,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 1.7038803, y: -0.000011444092}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1106,8 +1143,29 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 338.36005, y: 41.892128}
   m_EdgeRadius: 0
+--- !u!50 &7079773320517989658
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4389260332872075491}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &6173845047127493327
 GameObject:
   m_ObjectHideFlags: 0

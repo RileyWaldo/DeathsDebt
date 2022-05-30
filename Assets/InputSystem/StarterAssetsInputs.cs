@@ -54,6 +54,11 @@ namespace StarterAssets
 			if (value.isPressed)
                 onAttack?.Invoke();
         }
+
+		public void OnQuit()
+        {
+			Application.Quit();
+        }
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif

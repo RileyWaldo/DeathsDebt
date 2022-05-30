@@ -54,6 +54,7 @@ public class PlayerAttack : MonoBehaviour
 
             human.Pause(true);
             input.GetComponent<PlayerInput>().enabled = false;
+            GameObject.FindWithTag("Music").GetComponent<Music>().PlaySecondMusic();
             var soulCatch = Instantiate(soulCatchGamePrefab);
             soulCatch.GetComponent<SoulCatchEvent>().SetUp(human.GetDifficulty());
             soulCatch.GetComponent<SoulCatchEvent>().SetHuman(human);

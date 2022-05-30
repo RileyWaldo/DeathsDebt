@@ -8,14 +8,14 @@ public class SoulButton : MonoBehaviour
     [SerializeField] private Button button = Button.North;
     [SerializeField] private float speed = 128f;
 
-    private Collider2D collider2d;
+    private BoxCollider2D collider2d;
     private Collider2D tooFarZone;
 
     private SoulCatchEvent soulCatch;
 
     private void Awake()
     {
-        collider2d = GetComponent<Collider2D>();
+        collider2d = GetComponent<BoxCollider2D>();
         tooFarZone = GameObject.FindWithTag("Finish").GetComponent<Collider2D>();
     }
 
@@ -23,7 +23,23 @@ public class SoulButton : MonoBehaviour
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
-        if(Physics2D.IsTouching(collider2d, tooFarZone))
+        Collider2D[] colliders = new Collider2D[10];
+        int collisions = collider2d.OverlapCollider(new ContactFilter2D(), colliders);
+        
+        for (int i = 0; i < collisions; i++)
+        {
+            if(colliders[i].tag == "Finish")
+            {
+                soulCatch.Miss();
+                Destroy(gameObject);
+                break;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Finish")
         {
             soulCatch.Miss();
             Destroy(gameObject);

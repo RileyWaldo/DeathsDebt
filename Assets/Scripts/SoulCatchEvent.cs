@@ -21,6 +21,7 @@ public class SoulCatchEvent : MonoBehaviour
     [SerializeField] private GameObject inputBar;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI goalText;
+    [SerializeField] private ContactFilter2D contactFilter2D;
 
     private int score = 0;
     private int goal = 0;
@@ -77,7 +78,9 @@ public class SoulCatchEvent : MonoBehaviour
 
     private void YouWin()
     {
-
+        GameObject.FindWithTag("HUD").GetComponent<HUD>().IncreaseScore();
+        Destroy(human.gameObject);
+        GameOver();
     }
 
     private void GameOver()
@@ -85,6 +88,7 @@ public class SoulCatchEvent : MonoBehaviour
         Destroy(gameObject);
         human.Pause(false);
         FindObjectOfType<StarterAssetsInputs>().GetComponent<PlayerInput>().enabled = true;
+        GameObject.FindWithTag("Music").GetComponent<Music>().PlayMain();
     }
 
     private void HitButton()
@@ -110,8 +114,12 @@ public class SoulCatchEvent : MonoBehaviour
 
     private void CheckButtonPress(Button buttonToCheck)
     {
-        Collider2D[] colliders = new Collider2D[4];
-        int numberOfColliders = inputBar.GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D(), colliders);
+        Collider2D[] colliders = new Collider2D[10];
+        ContactFilter2D contactFilter2D = new ContactFilter2D();
+        contactFilter2D.useTriggers = true;
+        int numberOfColliders = inputBar.GetComponent<Collider2D>().OverlapCollider(contactFilter2D, colliders);
+
+        Debug.Log(numberOfColliders);
 
         if (numberOfColliders <= 0)
         {
@@ -126,7 +134,14 @@ public class SoulCatchEvent : MonoBehaviour
                 continue;
 
             if (button.GetButton() == buttonToCheck)
+            {
                 HitButton();
+                Destroy(button.gameObject);
+            }
+            else
+                Miss();
+
+            break;
         }
     }
 

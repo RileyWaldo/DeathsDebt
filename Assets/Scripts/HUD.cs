@@ -8,6 +8,8 @@ public class HUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI soulsText;
     [SerializeField] private TextMeshProUGUI timeText;
 
+    [SerializeField] private GameOver gameOverPrefab;
+
     private int score = 0;
     private bool gameOver = false;
 
@@ -41,7 +43,10 @@ public class HUD : MonoBehaviour
     {
         timeRemaining = 0f;
         gameOver = true;
-        //gameover
+        Instantiate(gameOverPrefab);
+        var soulCatch = FindObjectOfType<SoulCatchEvent>();
+        if (soulCatch != null)
+            Destroy(soulCatch.gameObject);
     }
 
     public void IncreaseScore()
